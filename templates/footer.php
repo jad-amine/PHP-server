@@ -1,6 +1,6 @@
 
 <footer class="section">
-   <div class="center">Copyright 2019</div>
+   <div class="center grey-text">Copyright 2019</div>
 </footer>
 
 

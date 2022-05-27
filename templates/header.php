@@ -9,10 +9,15 @@
       .brand-text{
          color: #cbb09c !important;
       }
+      form{
+         max-width: 460px;
+         margin: 20px auto;
+         padding: 20px
+      }
    </style>
    <title>Pizza</title>
 </head>
-<body class="grey">
+<body class="lighten-3 grey">
    <nav class="white z-depht-0">
       <div class="container">
          <a href="#" class="brand-logo brand-text"> My Pizza</a>
