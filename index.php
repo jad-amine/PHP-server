@@ -1,9 +1,20 @@
 <?php
 
+include('./test.php');
+
+// echo 10 == 10;
+// echo 5 != 10;
+
 $products = [
    ['name' => 'star', 'price' => 20],
    ['name' => 'coin', 'price' => 10]
 ];
+
+function say_price($items){
+   foreach($items as $item){
+      echo "{$item['name']} costs {$item['price']} $ <br>";
+   }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +26,10 @@ $products = [
 </head>
 <body>
    
-   <?php echo TRUE ?>
-   <?php echo FALSE ?>
-   <?php echo TRUE ?>
+   <!-- <?php echo TRUE ?> -->
+   <!-- <?php echo FALSE ?> -->
+   <!-- <?php echo TRUE . "<br>" ?> -->
+   <!-- <?php say_price($products); ?> -->
 
 </body>
 </html>
