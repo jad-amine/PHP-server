@@ -1,9 +1,25 @@
 <?php
 
+include('./connect.php');
 
-// if($_GET['submit']){
-//    header('Location: index.php');
-// };
+if(isset($_POST['submit'])){
+   // catch user input a check for sql injection
+   $title = mysqli_real_escape_string($conn,$_POST['title']);
+   $email = mysqli_real_escape_string($conn,$_POST['email']);
+   $ingredients = mysqli_real_escape_string($conn,$_POST['ingredients']);
+
+   //create sql 
+   $sql = "INSERT INTO  pizzas(title, email, ingredients) VALUES('$title', '$email', '$ingredients')";
+
+   //save to db and check
+   if(mysqli_query($conn, $sql)){
+      // success
+       header('Location: index.php');
+   } else{
+      // error
+      echo 'query error: ' . mysqli_error($conn);
+   }
+};
 
 
 ?>
@@ -16,7 +32,7 @@
 
    <section class="container grey-text">
       <h4 class="center">Add a Pizza</h4>
-      <form action="./add.php" method="GET">
+      <form action="./add.php" method="POST">
          <label>Your Email:</label>
          <input type="text" name="email">
          <label>Pizza title:</label>

@@ -1,12 +1,12 @@
 <?php
 
- // connect to db
- $conn = mysqli_connect('localhost', 'jad', 'test123', 'pizza');
+// Connect to db
+include('./connect.php');
 
- // write query for all piza
+ // write query for all pizzas
  $sql = 'select * from pizzas ORDER By created_at';
 
- // make query & get result as an row object
+ // make query & get result as rows object
  $result = mysqli_query($conn, $sql);
 
  // fetch the resulting rows as an array
@@ -30,13 +30,18 @@ mysqli_close($conn);
    <div class="container">
       <div class="row">
 
-         <?php foreach($pizzas as $pizza){ ?>
+         <?php foreach($pizzas as $pizza): ?>
             
             <div class="col s6 md3">
                <div class="card z-depth-0">
                   <div class="card-content center">
-                     <h6> <?php echo htmlspecialchars($pizza['title']); ?></h6>
-                     <div><?php echo htmlspecialchars($pizza['ingredients']); ?></div>
+                     <h6> <?php echo htmlspecialchars($pizza['title']); ?></h6>  
+                     <ul>
+                        <?php $ingredients = explode(',',$pizza['ingredients']); ?>
+                        <?php foreach($ingredients as $ingredient): ?>
+                           <li><?php echo htmlspecialchars($ingredient) ?></li>
+                        <?php endforeach; ?>
+                     </ul>
                   </div>
                   <div class="card-action right-align">
                      <a href="#" class="brand-text">More info</a>
@@ -44,7 +49,13 @@ mysqli_close($conn);
                </div>
             </div>
 
-         <?php } ?> 
+         <?php endforeach; ?> 
+
+         <?php if(count($pizzas) <= 2): ?>
+            <p>there are less than 3 pizzas</p>
+               <?php else : ?>
+               <p>there are 3 or more pizzas</p>
+         <?php endif; ?>
 
       </div>
    </div>
