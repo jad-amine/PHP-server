@@ -14,7 +14,11 @@
 
    if(isset($_POST['submit'])){
 
-      session_start();
+      // 1. variable 2. value 3. time to expire from this moment
+      setcookie('gender', $_POST['gender'], time() + 86499);
+
+      // start server session to store data abt the user
+      session_start();  
       
       $_SESSION['name'] = $_POST['name'];
 
@@ -34,6 +38,10 @@
    
    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
       <input type="text" name="name">
+      <select name="gender">
+         <option value="male">male</option>
+         <option value="female">female</option>
+      </select>
       <input type="submit" name="submit" value="submit">
    </form>
 
