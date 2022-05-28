@@ -1,7 +1,7 @@
 <?php
 
 // Connect to db
-include('./connect.php');
+include './config/connect.php';
 
  // write query for all pizzas
  $sql = 'select * from pizzas ORDER By created_at';
@@ -44,7 +44,7 @@ mysqli_close($conn);
                      </ul>
                   </div>
                   <div class="card-action right-align">
-                     <a href="#" class="brand-text">More info</a>
+                     <a href="details.php?id=<?php echo $pizza['id']; ?>" class="brand-text">More info</a>
                   </div>
                </div>
             </div>

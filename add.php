@@ -1,6 +1,6 @@
 <?php
 
-include('./connect.php');
+include './config/connect.php';
 
 if(isset($_POST['submit'])){
    // catch user input a check for sql injection
