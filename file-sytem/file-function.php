@@ -15,5 +15,5 @@
       //rename($file, 'test.txt');
    }
 
-   mkdir('quotes');
+   //mkdir('quotes');
 ?>
